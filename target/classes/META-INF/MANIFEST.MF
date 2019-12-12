@@ -1,6 +1,10 @@
 Manifest-Version: 1.0
 Implementation-Title: Criando_API_Rest
 Implementation-Version: 0.0.1-SNAPSHOT
-Build-Jdk-Spec: 1.8
+Built-By: waldirmarques
+Implementation-Vendor-Id: com.br.waldir
+Build-Jdk: 1.8.0_221
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/Criando_API_Rest
 Created-By: Maven Integration for Eclipse
 
