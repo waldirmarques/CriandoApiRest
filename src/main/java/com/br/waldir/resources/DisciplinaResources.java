@@ -1,6 +1,7 @@
 package com.br.waldir.resources;
 
 import java.net.URI;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -62,6 +63,16 @@ public class DisciplinaResources {
 	@RequestMapping(method = RequestMethod.GET) //list all ADM
 	public ResponseEntity<List<DisciplinaDTO>> findPage() {
 		List<Disciplina> list = service.findAll();
+		List<DisciplinaDTO> listDTO = list.stream().map(obj -> new DisciplinaDTO(obj)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listDTO);
+	}
+	
+	@RequestMapping(value="/ranking", method = RequestMethod.GET) //list all ADM
+	public ResponseEntity<List<DisciplinaDTO>> findPageRanking() {
+		List<Disciplina> list = service.findAll();
+		
+		list.sort(Comparator.comparing(Disciplina::getNota)); //Retorna a lista ordenada seguindo um parametro
+		
 		List<DisciplinaDTO> listDTO = list.stream().map(obj -> new DisciplinaDTO(obj)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDTO);
 	}
